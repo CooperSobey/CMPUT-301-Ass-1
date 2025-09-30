@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -31,5 +32,78 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/mobile_navigation"
     />
+
+    <ImageButton
+        android:id="@+id/sadEmoji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="196dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toStartOf="@+id/sickEmoji"
+        app:layout_constraintHorizontal_bias="0.525"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/crying_face_emoji_60x60" />
+
+    <ImageButton
+        android:id="@+id/sickEmoji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="196dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/face_with_thermometer_emoji_60x60" />
+
+    <ImageButton
+        android:id="@+id/neutralEmoji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="196dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.534"
+        app:layout_constraintStart_toEndOf="@+id/sickEmoji"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/neutral_face_emoji_60x60" />
+
+    <ImageButton
+        android:id="@+id/happyEmoji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintEnd_toStartOf="@+id/nsfwEmoji"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sadEmoji"
+        app:layout_constraintVertical_bias="0.165"
+        app:srcCompat="@drawable/slightly_smiling_face_emoji_icon_60x60" />
+
+    <ImageButton
+        android:id="@+id/nsfwEmoji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sickEmoji"
+        app:layout_constraintVertical_bias="0.165"
+        app:srcCompat="@drawable/tired_face_emoji_60x60" />
+
+    <ImageButton
+        android:id="@+id/angryEmoji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/nsfwEmoji"
+        app:layout_constraintTop_toBottomOf="@+id/neutralEmoji"
+        app:layout_constraintVertical_bias="0.165"
+        app:srcCompat="@drawable/very_angry_emoji_60x60" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
