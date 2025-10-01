@@ -19,13 +19,15 @@ import java.util.ArrayList;
 /*
 EmojiLogFragment works as the log "tab" for the app
 It logs the date and time of each emoji click and presents it as a list
+For some reason after the first log, it constantly stays one behind. Ran out of time to fix it.
  */
 public class EmojiLogFragment extends Fragment {
 
     private FragmentDashboardBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        EmojiLogViewModel emojiLogViewModel = new ViewModelProvider(this).get(EmojiLogViewModel.class);
+        //For some reason having this breaks everything and I don't know why
+        //EmojiLogViewModel emojiLogViewModel = new ViewModelProvider(this).get(EmojiLogViewModel.class);
 
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -40,7 +42,7 @@ public class EmojiLogFragment extends Fragment {
         listView.setAdapter(arrayAdapter);
 
         final TextView textView = binding.textDashboard;
-        emojiLogViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        //emojiLogViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
