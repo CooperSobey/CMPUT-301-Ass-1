@@ -16,16 +16,17 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import com.example.csobey_emotilog.databinding.ActivityMainBinding;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
 
-    private HashMap<Integer, EmojiTrackerData> emojiTracker;
-
-    protected final int uniqueEmojiCount = 6;
+//    private HashMap<Integer, ArrayList<EmojiTrackerData>> emojiTracker;
+//
+//    protected final int uniqueEmojiCount = 6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,25 +36,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        ImageButton sadEmoji = findViewById(R.id.sadEmoji);
-        ImageButton sickEmoji = findViewById(R.id.sickEmoji);
-        ImageButton neutralEmoji = findViewById(R.id.neutralEmoji);
-        ImageButton happyEmoji = findViewById(R.id.happyEmoji);
-        ImageButton nsfwEmoji = findViewById(R.id.nsfwEmoji);
-        ImageButton angryEmoji = findViewById(R.id.angryEmoji);
-
-        sadEmoji.setOnClickListener(this);
-        sickEmoji.setOnClickListener(this);
-        neutralEmoji.setOnClickListener(this);
-        happyEmoji.setOnClickListener(this);
-        nsfwEmoji.setOnClickListener(this);
-        angryEmoji.setOnClickListener(this);
-
-        emojiTracker = new HashMap<>();
-
-        for (int i = 0; i <= uniqueEmojiCount; i++){
-            emojiTracker.put(i, new EmojiTrackerData());
-        }
+//        ImageButton sadEmoji = findViewById(R.id.sadEmoji);
+//        ImageButton sickEmoji = findViewById(R.id.sickEmoji);
+//        ImageButton neutralEmoji = findViewById(R.id.neutralEmoji);
+//        ImageButton happyEmoji = findViewById(R.id.happyEmoji);
+//        ImageButton nsfwEmoji = findViewById(R.id.nsfwEmoji);
+//        ImageButton angryEmoji = findViewById(R.id.angryEmoji);
+//
+//        sadEmoji.setOnClickListener(this);
+//        sickEmoji.setOnClickListener(this);
+//        neutralEmoji.setOnClickListener(this);
+//        happyEmoji.setOnClickListener(this);
+//        nsfwEmoji.setOnClickListener(this);
+//        angryEmoji.setOnClickListener(this);
+//
+//        emojiTracker = new HashMap<>();
+//
+//        for (int i = 0; i <= uniqueEmojiCount; i++){
+//            emojiTracker.put(i, new ArrayList<>());
+//        }
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -68,34 +69,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    @Override
-    public void onClick (View v) {
-        int tempID = v.getId();
-
-        if(tempID == R.id.sadEmoji) {
-            EmojiTrackerData tempEmojiTrackerData = emojiTracker.get(1);
-            tempEmojiTrackerData.logEmoji();
-        } else if (tempID == R.id.sickEmoji) {
-            EmojiTrackerData tempEmojiTrackerData = emojiTracker.get(2);
-            tempEmojiTrackerData.logEmoji();
-            Log.d("BUTTON_TEST", "Button works" + tempEmojiTrackerData.timeStamp);
-        } else if (tempID == R.id.neutralEmoji) {
-            EmojiTrackerData tempEmojiTrackerData = emojiTracker.get(3);
-            tempEmojiTrackerData.logEmoji();
-        } else if (tempID == R.id.happyEmoji) {
-            EmojiTrackerData tempEmojiTrackerData = emojiTracker.get(4);
-            tempEmojiTrackerData.logEmoji();
-        } else if (tempID == R.id.nsfwEmoji) {
-            EmojiTrackerData tempEmojiTrackerData = emojiTracker.get(5);
-            tempEmojiTrackerData.logEmoji();
-        } else if (tempID == R.id.angryEmoji) {
-            EmojiTrackerData tempEmojiTrackerData = emojiTracker.get(6);
-            tempEmojiTrackerData.logEmoji();
-        }
-    }
-
-    //emoji count
-    //Put method here//
+//    @Override
+//    public void onClick (View v) {
+//        int tempID = v.getId();
+//
+//        if(tempID == R.id.sadEmoji) {
+//            EmojiTrackerData tempEmojiTrackerData = new EmojiTrackerData();
+//            tempEmojiTrackerData.logEmoji();
+//            emojiTracker.get(1).add(tempEmojiTrackerData);
+//        } else if (tempID == R.id.sickEmoji) {
+//            EmojiTrackerData tempEmojiTrackerData = new EmojiTrackerData();
+//            tempEmojiTrackerData.logEmoji();
+//            emojiTracker.get(2).add(tempEmojiTrackerData);
+//            Log.d("BUTTON_TEST", "Button works" + emojiTracker.get(2).getLast().timeStamp);
+//        } else if (tempID == R.id.neutralEmoji) {
+//            EmojiTrackerData tempEmojiTrackerData = new EmojiTrackerData();
+//            tempEmojiTrackerData.logEmoji();
+//            emojiTracker.get(3).add(tempEmojiTrackerData);
+//        } else if (tempID == R.id.happyEmoji) {
+//            EmojiTrackerData tempEmojiTrackerData = new EmojiTrackerData();
+//            tempEmojiTrackerData.logEmoji();
+//            emojiTracker.get(4).add(tempEmojiTrackerData);
+//        } else if (tempID == R.id.nsfwEmoji) {
+//            EmojiTrackerData tempEmojiTrackerData = new EmojiTrackerData();
+//            tempEmojiTrackerData.logEmoji();
+//            emojiTracker.get(5).add(tempEmojiTrackerData);
+//        } else if (tempID == R.id.angryEmoji) {
+//            EmojiTrackerData tempEmojiTrackerData = new EmojiTrackerData();
+//            tempEmojiTrackerData.logEmoji();
+//            emojiTracker.get(6).add(tempEmojiTrackerData);
+//        }
+//    }
 
 
 }
