@@ -21,12 +21,14 @@ public class SharedViewModel extends ViewModel {
     private int totalCount;
 
     public SharedViewModel() {
+        //Creates the map that stores emojies as well as the map that tracks their frequencies
         int uniqueEmojiCount = 6;
         for (int i = 0; i <= uniqueEmojiCount; i++){
             emojiTracker.put(i, new ArrayList<>());
             emojiFrequencyMap.put(i, 0);
         }
 
+        //Sets initial count to 0
         totalCount = 0;
     }
 
@@ -34,6 +36,7 @@ public class SharedViewModel extends ViewModel {
         return emojiTracker;
     }
 
+    //Using the Emoji data fed in, saves the emoji data so it can be transfered between fragments
     public void saveEmojiClickData(int emojiID, EmojiTrackerData clickData) {
         int tempCount;
         if(emojiTracker.containsKey(emojiID)){
@@ -47,6 +50,7 @@ public class SharedViewModel extends ViewModel {
         emojiHistoryList.add(clickData);
     }
 
+    //Getters and setters
     public ArrayList<EmojiTrackerData> getEmojiHistoryList() {
         return emojiHistoryList;
     }
@@ -55,13 +59,4 @@ public class SharedViewModel extends ViewModel {
         return totalCount;
     }
 
-    public ArrayList<EmojiTrackerData> getCombinedList() {
-        ArrayList<EmojiTrackerData> combinedList = new ArrayList<>();
-
-        for (ArrayList<EmojiTrackerData> temp: emojiTracker.values()){
-            combinedList.addAll(temp);
-        }
-
-        return combinedList;
-    }
 }

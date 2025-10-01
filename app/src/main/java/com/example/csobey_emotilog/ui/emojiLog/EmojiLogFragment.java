@@ -38,6 +38,7 @@ public class EmojiLogFragment extends Fragment {
 
         ArrayList<EmojiTrackerData> historyList = new ArrayList<>(sharedViewModel.getEmojiHistoryList());
 
+        //Calls emoji adapter to display list
         EmojiAdaptor arrayAdapter = new EmojiAdaptor(requireContext(), historyList, 1);
         listView.setAdapter(arrayAdapter);
 

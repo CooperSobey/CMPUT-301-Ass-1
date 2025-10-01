@@ -15,6 +15,7 @@ public class EmojiTrackerData {
     private LocalDateTime dateTime;
     public String timeStamp;
 
+    //Base Emoji values and calls log emoji to set time stamps
     public EmojiTrackerData(int emojiID, int emojiPicID){
         this.count = 0;
         this.timeStamp = "0";
@@ -23,12 +24,13 @@ public class EmojiTrackerData {
         logEmoji();
     }
 
+    //Logs emoji with timestamps
     public void logEmoji(){
-        this.count = 2;
         this.dateTime = java.time.LocalDateTime.now();
         this.timeStamp = timeStampFormat();
     }
 
+    //Formats the time stamp so its readable and asthetic
     public String timeStampFormat(){
         String tempTimeStamp;
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
@@ -36,6 +38,7 @@ public class EmojiTrackerData {
         return tempTimeStamp;
     }
 
+    //Getters and Setters
     public int getCount() {
         return count;
     }

@@ -38,6 +38,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
         sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
 
+        //Binding buttons to onClickListeners
         binding.sadEmoji.setOnClickListener(this);
         binding.sickEmoji.setOnClickListener(this);
         binding.neutralEmoji.setOnClickListener(this);
@@ -54,6 +55,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     public void onClick (View v) {
         int tempID = v.getId();
 
+        //On click we check if the id we clicked matches one of the emojis
+        //If so, we make a new emoji data object and send it to the sharedViewModel
         if(tempID == R.id.sadEmoji) {
             int emojiPicID = R.drawable.crying_face_emoji_60x60;
             EmojiTrackerData tempEmojiTrackerData = new EmojiTrackerData(1, emojiPicID);

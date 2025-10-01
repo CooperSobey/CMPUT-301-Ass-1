@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+//NOTE: ran out of time for good comments I'm so sorry, should have done them as I went but I was so
+//      stressed I forgot.
 //Stock main class that came with the preset
 public class MainActivity extends AppCompatActivity {
 

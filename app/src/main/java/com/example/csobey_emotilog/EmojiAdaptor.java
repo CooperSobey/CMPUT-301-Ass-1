@@ -43,6 +43,7 @@ public class EmojiAdaptor extends ArrayAdapter<EmojiTrackerData> {
         assert data != null;
         emojiImage.setImageResource(data.emojiPicID);
 
+        //Different behaviours based off which fragment needs it
         if(fragmentNum == 1){
             emojiText.setText(data.timeStamp);
         }else if (fragmentNum == 2){
