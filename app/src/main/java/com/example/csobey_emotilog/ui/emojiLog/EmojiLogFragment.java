@@ -1,11 +1,9 @@
-package com.example.csobey_emotilog.ui.dashboard;
+package com.example.csobey_emotilog.ui.emojiLog;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -18,29 +16,23 @@ import com.example.csobey_emotilog.databinding.FragmentDashboardBinding;
 import com.example.csobey_emotilog.ui.SharedViewModel;
 
 import java.util.ArrayList;
-
-public class DashboardFragment extends Fragment {
+/*
+EmojiLogFragment works as the log "tab" for the app
+It logs the date and time of each emoji click and presents it as a list
+ */
+public class EmojiLogFragment extends Fragment {
 
     private FragmentDashboardBinding binding;
-    private SharedViewModel sharedViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        DashboardViewModel dashboardViewModel = new ViewModelProvider(this).get(DashboardViewModel.class);
+        EmojiLogViewModel emojiLogViewModel = new ViewModelProvider(this).get(EmojiLogViewModel.class);
 
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
+        SharedViewModel sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
 
         ListView listView = binding.emojiHistory;
-
-
-
-//        ArrayList<String> historyList = new ArrayList<>();
-//        for (EmojiTrackerData temp: sharedViewModel.getCombinedList()){
-//            String convertedEmojiData = "Emoji: " + temp.emojiPicID + " At Time: " + temp.timeStamp;
-//            historyList.add(convertedEmojiData);
-//        }
 
         ArrayList<EmojiTrackerData> historyList = new ArrayList<>(sharedViewModel.getEmojiHistoryList());
 
@@ -48,7 +40,7 @@ public class DashboardFragment extends Fragment {
         listView.setAdapter(arrayAdapter);
 
         final TextView textView = binding.textDashboard;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        emojiLogViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

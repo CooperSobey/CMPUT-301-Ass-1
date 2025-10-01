@@ -1,4 +1,4 @@
-package com.example.csobey_emotilog.ui.notifications;
+package com.example.csobey_emotilog.ui.emojiSummary;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,19 +12,21 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.csobey_emotilog.databinding.FragmentNotificationsBinding;
 import com.example.csobey_emotilog.ui.SharedViewModel;
-
-public class NotificationsFragment extends Fragment {
+/*
+EmojiSummaryFragment works as the total count "tab"
+It has a count for how much each emoji was clicked and the total emojis clicked
+ */
+public class EmojiSummaryFragment extends Fragment {
 
     private FragmentNotificationsBinding binding;
-    private SharedViewModel sharedViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        NotificationsViewModel notificationsViewModel = new ViewModelProvider(this).get(NotificationsViewModel.class);
+        EmojiSummaryViewModel emojiSummaryViewModel = new ViewModelProvider(this).get(EmojiSummaryViewModel.class);
 
         binding = FragmentNotificationsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
+        SharedViewModel sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
 
         ArrayAdapter<Object> arrayAdapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_list_item_1);
 
@@ -37,7 +39,7 @@ public class NotificationsFragment extends Fragment {
         binding.textView7.setText("Total Count: " + sharedViewModel.getTotalCount());
 
         final TextView textView = binding.textNotifications;
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        emojiSummaryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

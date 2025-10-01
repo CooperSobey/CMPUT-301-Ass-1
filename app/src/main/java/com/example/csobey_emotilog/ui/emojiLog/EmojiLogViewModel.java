@@ -1,16 +1,16 @@
-package com.example.csobey_emotilog.ui.notifications;
+package com.example.csobey_emotilog.ui.emojiLog;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class NotificationsViewModel extends ViewModel {
+public class EmojiLogViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public NotificationsViewModel() {
+    public EmojiLogViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
+        mText.setValue(" ");
     }
 
     public LiveData<String> getText() {

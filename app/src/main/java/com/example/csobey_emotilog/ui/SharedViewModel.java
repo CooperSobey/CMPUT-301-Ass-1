@@ -7,20 +7,26 @@ import com.example.csobey_emotilog.EmojiTrackerData;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/*
+SharedViewModel works as our data storing class
+It takes all the data from HomeFragment's button clicks and keeps them here so they are maintained
+when we switch between our "tabs"
+ */
 public class SharedViewModel extends ViewModel {
 
     public HashMap<Integer, ArrayList<EmojiTrackerData>> emojiTracker = new HashMap<>();
     public ArrayList<EmojiTrackerData> emojiHistoryList = new ArrayList<>();
     public HashMap<Integer, Integer> emojiFrequencyMap = new HashMap<>();
 
-    private final int uniqueEmojiCount = 6;
     private int totalCount;
 
     public SharedViewModel() {
+        int uniqueEmojiCount = 6;
         for (int i = 0; i <= uniqueEmojiCount; i++){
             emojiTracker.put(i, new ArrayList<>());
             emojiFrequencyMap.put(i, 0);
         }
+
         totalCount = 0;
     }
 

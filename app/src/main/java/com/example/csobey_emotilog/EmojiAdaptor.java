@@ -13,8 +13,13 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
+/*
+EmojiAdaptor is a custom ArrayAdapter
+It is used to create the list in emojiLog by combining the emoji image with the timestamp text
+Used the emoji_with_text_display xml for formatting
+ */
 public class EmojiAdaptor extends ArrayAdapter<EmojiTrackerData> {
-    private int fragmentNum;
+    private final int fragmentNum;
 
     public EmojiAdaptor(Context context, ArrayList<EmojiTrackerData> emojiHistory, int fragmentNum) {
         super(context, 0, emojiHistory);
@@ -35,6 +40,7 @@ public class EmojiAdaptor extends ArrayAdapter<EmojiTrackerData> {
         ImageView emojiImage = view.findViewById(R.id.emojiImage);
         TextView emojiText = view.findViewById(R.id.emojiText);
 
+        assert data != null;
         emojiImage.setImageResource(data.emojiPicID);
 
         if(fragmentNum == 1){

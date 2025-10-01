@@ -3,6 +3,10 @@ package com.example.csobey_emotilog;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/*
+EmojiTrackerData is the object which we store all of our click data.
+Each click makes a new one of these and stores it in SharedViewModels hashmap
+ */
 public class EmojiTrackerData {
     public int emojiID;
     public int emojiPicID;

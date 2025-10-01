@@ -13,13 +13,13 @@
 
     <fragment
         android:id="@+id/navigation_emojiList"
-        android:name="com.example.csobey_emotilog.ui.dashboard.DashboardFragment"
+        android:name="com.example.csobey_emotilog.ui.emojiLog.EmojiLogFragment"
         android:label="@string/title_emojiList"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_summary"
-        android:name="com.example.csobey_emotilog.ui.notifications.NotificationsFragment"
+        android:name="com.example.csobey_emotilog.ui.emojiSummary.EmojiSummaryFragment"
         android:label="@string/title_summary"
         tools:layout="@layout/fragment_notifications" />
 </navigation>
