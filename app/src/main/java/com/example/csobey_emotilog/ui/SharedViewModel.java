@@ -10,6 +10,7 @@ import java.util.HashMap;
 public class SharedViewModel extends ViewModel {
 
     public HashMap<Integer, ArrayList<EmojiTrackerData>> emojiTracker = new HashMap<>();
+    public ArrayList<EmojiTrackerData> emojiHistoryList = new ArrayList<>();
 
     private final int uniqueEmojiCount = 6;
 
@@ -27,6 +28,12 @@ public class SharedViewModel extends ViewModel {
         if(emojiTracker.containsKey(emojiID)){
             emojiTracker.get(emojiID).add(clickData);
         }
+
+        emojiHistoryList.add(clickData);
+    }
+
+    public ArrayList<EmojiTrackerData> getEmojiHistoryList() {
+        return emojiHistoryList;
     }
 
     public ArrayList<EmojiTrackerData> getCombinedList() {

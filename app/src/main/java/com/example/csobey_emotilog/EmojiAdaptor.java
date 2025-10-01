@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,8 +14,8 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
 public class EmojiAdaptor extends ArrayAdapter<EmojiTrackerData> {
-    public EmojiAdaptor(Context context, ArrayList<EmojiTrackerData> cities) {
-        super(context, 0, cities);
+    public EmojiAdaptor(Context context, ArrayList<EmojiTrackerData> emojiHistory) {
+        super(context, 0, emojiHistory);
     }
 
     @NonNull
@@ -23,15 +24,16 @@ public class EmojiAdaptor extends ArrayAdapter<EmojiTrackerData> {
         View view;
 
         if (convertView == null) {
-            view = LayoutInflater.from(getContext()).inflate(R.layout.content, parent, false);
+            view = LayoutInflater.from(getContext()).inflate(R.layout.emoji_with_text_display, parent, false);
         } else {
             view = convertView;
         }
-        City city = getItem(position);
-        TextView cityName = view.findViewById(R.id.city_text);
-        TextView provinceName = view.findViewById(R.id.province_text);
-        cityName.setText(city.getName());
-        provinceName.setText(city.getProvince());
+        EmojiTrackerData data = getItem(position);
+        ImageView emojiImage = view.findViewById(R.id.emojiImage);
+        TextView emojiText = view.findViewById(R.id.emojiText);
+
+        emojiImage.setImageResource(data.emojiPicID);
+        emojiText.setText(data.timeStamp);
         return view;
     }
 }

@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.csobey_emotilog.EmojiAdaptor;
 import com.example.csobey_emotilog.EmojiTrackerData;
 import com.example.csobey_emotilog.databinding.FragmentDashboardBinding;
 import com.example.csobey_emotilog.ui.SharedViewModel;
@@ -22,7 +23,6 @@ public class DashboardFragment extends Fragment {
 
     private FragmentDashboardBinding binding;
     private SharedViewModel sharedViewModel;
-    private ArrayAdapter<String> arrayAdapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         DashboardViewModel dashboardViewModel = new ViewModelProvider(this).get(DashboardViewModel.class);
@@ -36,13 +36,15 @@ public class DashboardFragment extends Fragment {
 
 
 
-        ArrayList<String> historyList = new ArrayList<>();
-        for (EmojiTrackerData temp: sharedViewModel.getCombinedList()){
-            String convertedEmojiData = "Emoji: " + temp.emojiPicID + " At Time: " + temp.timeStamp;
-            historyList.add(convertedEmojiData);
-        }
+//        ArrayList<String> historyList = new ArrayList<>();
+//        for (EmojiTrackerData temp: sharedViewModel.getCombinedList()){
+//            String convertedEmojiData = "Emoji: " + temp.emojiPicID + " At Time: " + temp.timeStamp;
+//            historyList.add(convertedEmojiData);
+//        }
 
-        arrayAdapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_list_item_1, historyList);
+        ArrayList<EmojiTrackerData> historyList = new ArrayList<>(sharedViewModel.getEmojiHistoryList());
+
+        EmojiAdaptor arrayAdapter = new EmojiAdaptor(requireContext(), historyList);
         listView.setAdapter(arrayAdapter);
 
         final TextView textView = binding.textDashboard;
