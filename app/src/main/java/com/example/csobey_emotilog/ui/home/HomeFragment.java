@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.csobey_emotilog.EmojiTrackerData;
 import com.example.csobey_emotilog.R;
 import com.example.csobey_emotilog.databinding.FragmentHomeBinding;
+import com.example.csobey_emotilog.ui.SharedViewModel;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,9 +23,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
     private FragmentHomeBinding binding;
 
-    private HashMap<Integer, ArrayList<EmojiTrackerData>> emojiTracker;
+//    private HashMap<Integer, ArrayList<EmojiTrackerData>> emojiTracker;
 
-    protected final int uniqueEmojiCount = 6;
+//    protected final int uniqueEmojiCount = 6;
+
+    private SharedViewModel sharedViewModel;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -35,6 +38,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        sharedViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
+
         ImageButton sadEmoji = root.findViewById(R.id.sadEmoji);
         ImageButton sickEmoji = root.findViewById(R.id.sickEmoji);
         ImageButton neutralEmoji = root.findViewById(R.id.neutralEmoji);
@@ -42,18 +47,16 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         ImageButton nsfwEmoji = root.findViewById(R.id.nsfwEmoji);
         ImageButton angryEmoji = root.findViewById(R.id.angryEmoji);
 
-        sadEmoji.setOnClickListener(this);
-        sickEmoji.setOnClickListener(this);
-        neutralEmoji.setOnClickListener(this);
-        happyEmoji.setOnClickListener(this);
-        nsfwEmoji.setOnClickListener(this);
-        angryEmoji.setOnClickListener(this);
+        binding.sadEmoji.setOnClickListener(this);
+        binding.sickEmoji.setOnClickListener(this);
+        binding.neutralEmoji.setOnClickListener(this);
+        binding.happyEmoji.setOnClickListener(this);
+        binding.nsfwEmoji.setOnClickListener(this);
+        binding.angryEmoji.setOnClickListener(this);
 
-        emojiTracker = new HashMap<>();
-
-        for (int i = 0; i <= uniqueEmojiCount; i++){
-            emojiTracker.put(i, new ArrayList<>());
-        }
+//        for (int i = 0; i <= uniqueEmojiCount; i++){
+//            emojiTracker.put(i, new ArrayList<>());
+//        }
 
 
         final TextView textView = binding.textHome;
@@ -68,29 +71,29 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         if(tempID == R.id.sadEmoji) {
             EmojiTrackerData tempEmojiTrackerData = new EmojiTrackerData();
             tempEmojiTrackerData.logEmoji();
-            emojiTracker.get(1).add(tempEmojiTrackerData);
+            sharedViewModel.saveEmojiClickData(1, tempEmojiTrackerData);
         } else if (tempID == R.id.sickEmoji) {
             EmojiTrackerData tempEmojiTrackerData = new EmojiTrackerData();
             tempEmojiTrackerData.logEmoji();
-            emojiTracker.get(2).add(tempEmojiTrackerData);
-            Log.d("BUTTON_TEST", "Button works" + emojiTracker.get(2).getLast().timeStamp);
+            sharedViewModel.saveEmojiClickData(2, tempEmojiTrackerData);
+            Log.d("BUTTON_TEST", "Button works" + sharedViewModel.emojiTracker.get(2).getLast().timeStamp);
         } else if (tempID == R.id.neutralEmoji) {
             EmojiTrackerData tempEmojiTrackerData = new EmojiTrackerData();
             tempEmojiTrackerData.logEmoji();
-            emojiTracker.get(3).add(tempEmojiTrackerData);
-            Log.d("BUTTON_TEST", "Button works" + emojiTracker.get(2).getLast().timeStamp);
+            sharedViewModel.saveEmojiClickData(3, tempEmojiTrackerData);
+            Log.d("BUTTON_TEST", "Button works" + sharedViewModel.emojiTracker.get(2).getLast().timeStamp);
         } else if (tempID == R.id.happyEmoji) {
             EmojiTrackerData tempEmojiTrackerData = new EmojiTrackerData();
             tempEmojiTrackerData.logEmoji();
-            emojiTracker.get(4).add(tempEmojiTrackerData);
+            sharedViewModel.saveEmojiClickData(4, tempEmojiTrackerData);
         } else if (tempID == R.id.nsfwEmoji) {
             EmojiTrackerData tempEmojiTrackerData = new EmojiTrackerData();
             tempEmojiTrackerData.logEmoji();
-            emojiTracker.get(5).add(tempEmojiTrackerData);
+            sharedViewModel.saveEmojiClickData(5, tempEmojiTrackerData);
         } else if (tempID == R.id.angryEmoji) {
             EmojiTrackerData tempEmojiTrackerData = new EmojiTrackerData();
             tempEmojiTrackerData.logEmoji();
-            emojiTracker.get(6).add(tempEmojiTrackerData);
+            sharedViewModel.saveEmojiClickData(6, tempEmojiTrackerData);
         }
     }
 
