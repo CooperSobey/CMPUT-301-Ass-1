@@ -34,6 +34,7 @@ public class NotificationsFragment extends Fragment {
         binding.textViewHappyEmoji.setText(String.valueOf(sharedViewModel.emojiFrequencyMap.get(4)));
         binding.textViewNsfwEmoji.setText(String.valueOf(sharedViewModel.emojiFrequencyMap.get(5)));
         binding.textViewAngryEmoji.setText(String.valueOf(sharedViewModel.emojiFrequencyMap.get(6)));
+        binding.textView7.setText("Total Count: " + sharedViewModel.getTotalCount());
 
         final TextView textView = binding.textNotifications;
         notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);

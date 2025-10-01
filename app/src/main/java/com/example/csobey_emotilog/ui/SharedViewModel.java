@@ -14,12 +14,14 @@ public class SharedViewModel extends ViewModel {
     public HashMap<Integer, Integer> emojiFrequencyMap = new HashMap<>();
 
     private final int uniqueEmojiCount = 6;
+    private int totalCount;
 
     public SharedViewModel() {
         for (int i = 0; i <= uniqueEmojiCount; i++){
             emojiTracker.put(i, new ArrayList<>());
             emojiFrequencyMap.put(i, 0);
         }
+        totalCount = 0;
     }
 
     public HashMap<Integer, ArrayList<EmojiTrackerData>> getEmojiTracker() {
@@ -31,6 +33,7 @@ public class SharedViewModel extends ViewModel {
         if(emojiTracker.containsKey(emojiID)){
             tempCount = emojiFrequencyMap.get(emojiID);
             tempCount++;
+            totalCount++;
             emojiTracker.get(emojiID).add(clickData);
             emojiFrequencyMap.put(emojiID, tempCount);
         }
@@ -40,6 +43,10 @@ public class SharedViewModel extends ViewModel {
 
     public ArrayList<EmojiTrackerData> getEmojiHistoryList() {
         return emojiHistoryList;
+    }
+
+    public int getTotalCount() {
+        return totalCount;
     }
 
     public ArrayList<EmojiTrackerData> getCombinedList() {
