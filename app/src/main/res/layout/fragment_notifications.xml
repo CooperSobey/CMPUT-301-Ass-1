@@ -10,6 +10,7 @@
         android:id="@+id/textViewAngryEmoji"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:text="TextView"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -70,6 +71,7 @@
         android:id="@+id/sadEmojiTotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
         android:background="#00FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/sickEmojiTotal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -131,10 +133,12 @@
         app:layout_constraintVertical_bias="0.5"
         app:srcCompat="@drawable/tired_face_emoji_60x60" />
 
+
     <ImageView
         android:id="@+id/angryEmojiTotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
         android:background="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -143,7 +147,6 @@
         app:layout_constraintTop_toBottomOf="@+id/nsfwEmojiTotal"
         app:layout_constraintVertical_bias="0.5"
         app:srcCompat="@drawable/very_angry_emoji_60x60" />
-
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline7"
@@ -158,6 +161,7 @@
         android:id="@+id/textViewSadEmoji"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
         android:text="TextView"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/textViewSickEmoji"
@@ -178,5 +182,17 @@
         app:layout_constraintStart_toEndOf="@+id/sickEmojiTotal"
         app:layout_constraintTop_toBottomOf="@+id/textViewSadEmoji"
         app:layout_constraintVertical_bias="0.5" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:text="Total Count: "
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/sadEmojiTotal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
