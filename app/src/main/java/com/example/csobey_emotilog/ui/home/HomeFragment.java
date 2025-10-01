@@ -69,30 +69,36 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         int tempID = v.getId();
 
         if(tempID == R.id.sadEmoji) {
-            EmojiTrackerData tempEmojiTrackerData = new EmojiTrackerData();
-            tempEmojiTrackerData.logEmoji();
+            int emojiPicID = R.drawable.crying_face_emoji_60x60;
+            EmojiTrackerData tempEmojiTrackerData = new EmojiTrackerData(1, emojiPicID);
+            //tempEmojiTrackerData.logEmoji();
             sharedViewModel.saveEmojiClickData(1, tempEmojiTrackerData);
         } else if (tempID == R.id.sickEmoji) {
-            EmojiTrackerData tempEmojiTrackerData = new EmojiTrackerData();
-            tempEmojiTrackerData.logEmoji();
+            int emojiPicID = R.drawable.face_with_thermometer_emoji_60x60;
+            EmojiTrackerData tempEmojiTrackerData = new EmojiTrackerData(2, emojiPicID);
+            //tempEmojiTrackerData.logEmoji();
             sharedViewModel.saveEmojiClickData(2, tempEmojiTrackerData);
             Log.d("BUTTON_TEST", "Button works" + sharedViewModel.emojiTracker.get(2).getLast().timeStamp);
         } else if (tempID == R.id.neutralEmoji) {
-            EmojiTrackerData tempEmojiTrackerData = new EmojiTrackerData();
-            tempEmojiTrackerData.logEmoji();
+            int emojiPicID = R.drawable.neutral_face_emoji_60x60;
+            EmojiTrackerData tempEmojiTrackerData = new EmojiTrackerData(3, emojiPicID);
+            //tempEmojiTrackerData.logEmoji();
             sharedViewModel.saveEmojiClickData(3, tempEmojiTrackerData);
             Log.d("BUTTON_TEST", "Button works" + sharedViewModel.emojiTracker.get(2).getLast().timeStamp);
         } else if (tempID == R.id.happyEmoji) {
-            EmojiTrackerData tempEmojiTrackerData = new EmojiTrackerData();
-            tempEmojiTrackerData.logEmoji();
+            int emojiPicID = R.drawable.slightly_smiling_face_emoji_icon_60x60;
+            EmojiTrackerData tempEmojiTrackerData = new EmojiTrackerData(4, emojiPicID);
+            //tempEmojiTrackerData.logEmoji();
             sharedViewModel.saveEmojiClickData(4, tempEmojiTrackerData);
         } else if (tempID == R.id.nsfwEmoji) {
-            EmojiTrackerData tempEmojiTrackerData = new EmojiTrackerData();
-            tempEmojiTrackerData.logEmoji();
+            int emojiPicID = R.drawable.tired_face_emoji_60x60;
+            EmojiTrackerData tempEmojiTrackerData = new EmojiTrackerData(5, emojiPicID);
+            //tempEmojiTrackerData.logEmoji();
             sharedViewModel.saveEmojiClickData(5, tempEmojiTrackerData);
         } else if (tempID == R.id.angryEmoji) {
-            EmojiTrackerData tempEmojiTrackerData = new EmojiTrackerData();
-            tempEmojiTrackerData.logEmoji();
+            int emojiPicID = R.drawable.very_angry_emoji_60x60;
+            EmojiTrackerData tempEmojiTrackerData = new EmojiTrackerData(6, emojiPicID);
+            //tempEmojiTrackerData.logEmoji();
             sharedViewModel.saveEmojiClickData(6, tempEmojiTrackerData);
         }
     }

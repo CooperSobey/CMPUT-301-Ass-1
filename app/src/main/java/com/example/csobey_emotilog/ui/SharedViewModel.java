@@ -28,4 +28,14 @@ public class SharedViewModel extends ViewModel {
             emojiTracker.get(emojiID).add(clickData);
         }
     }
+
+    public ArrayList<EmojiTrackerData> getCombinedList() {
+        ArrayList<EmojiTrackerData> combinedList = new ArrayList<>();
+
+        for (ArrayList<EmojiTrackerData> temp: emojiTracker.values()){
+            combinedList.addAll(temp);
+        }
+
+        return combinedList;
+    }
 }

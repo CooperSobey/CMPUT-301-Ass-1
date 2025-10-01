@@ -4,13 +4,18 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class EmojiTrackerData {
+    public int emojiID;
+    public int emojiPicID;
     public int count;
     private LocalDateTime dateTime;
     public String timeStamp;
 
-    public EmojiTrackerData(){
+    public EmojiTrackerData(int emojiID, int emojiPicID){
         this.count = 0;
         this.timeStamp = "0";
+        this.emojiID = emojiID;
+        this.emojiPicID = emojiPicID;
+        logEmoji();
     }
 
     public void logEmoji(){
