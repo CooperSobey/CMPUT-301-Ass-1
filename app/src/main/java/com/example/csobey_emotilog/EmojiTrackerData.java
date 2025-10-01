@@ -4,9 +4,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class EmojiTrackerData {
-    private int count;
+    public int count;
     private LocalDateTime dateTime;
-    private String timeStamp;
+    public String timeStamp;
 
     public EmojiTrackerData(){
         this.count = 0;
@@ -15,9 +15,8 @@ public class EmojiTrackerData {
 
     public void logEmoji(){
         count ++;
-
-        LocalDateTime dateTime = LocalDateTime.now();
-        timeStamp = timeStampFormat();
+        this.dateTime = java.time.LocalDateTime.now();
+        this.timeStamp = timeStampFormat();
     }
 
     public String timeStampFormat(){
