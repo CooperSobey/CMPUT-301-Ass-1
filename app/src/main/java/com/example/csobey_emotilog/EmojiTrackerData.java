@@ -7,6 +7,7 @@ public class EmojiTrackerData {
     public int emojiID;
     public int emojiPicID;
     public int count;
+    public String stringCount;
     private LocalDateTime dateTime;
     public String timeStamp;
 
@@ -19,7 +20,7 @@ public class EmojiTrackerData {
     }
 
     public void logEmoji(){
-        count ++;
+        this.count = 2;
         this.dateTime = java.time.LocalDateTime.now();
         this.timeStamp = timeStampFormat();
     }
@@ -37,6 +38,11 @@ public class EmojiTrackerData {
 
     public String getTime() {
         return timeStamp;
+    }
+
+    public String getStringCount() {
+        stringCount = String.valueOf(count);
+        return stringCount;
     }
 
     public void setCount(int count) {

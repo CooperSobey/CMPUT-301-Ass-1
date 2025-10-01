@@ -14,8 +14,11 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
 public class EmojiAdaptor extends ArrayAdapter<EmojiTrackerData> {
-    public EmojiAdaptor(Context context, ArrayList<EmojiTrackerData> emojiHistory) {
+    private int fragmentNum;
+
+    public EmojiAdaptor(Context context, ArrayList<EmojiTrackerData> emojiHistory, int fragmentNum) {
         super(context, 0, emojiHistory);
+        this.fragmentNum = fragmentNum;
     }
 
     @NonNull
@@ -33,7 +36,15 @@ public class EmojiAdaptor extends ArrayAdapter<EmojiTrackerData> {
         TextView emojiText = view.findViewById(R.id.emojiText);
 
         emojiImage.setImageResource(data.emojiPicID);
-        emojiText.setText(data.timeStamp);
+
+        if(fragmentNum == 1){
+            emojiText.setText(data.timeStamp);
+        }else if (fragmentNum == 2){
+            emojiText.setText(data.getStringCount());
+        }else{
+            emojiText.setText(" ");
+        }
+
         return view;
     }
 }

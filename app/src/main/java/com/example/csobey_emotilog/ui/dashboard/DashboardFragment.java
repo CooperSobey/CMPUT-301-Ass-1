@@ -44,7 +44,7 @@ public class DashboardFragment extends Fragment {
 
         ArrayList<EmojiTrackerData> historyList = new ArrayList<>(sharedViewModel.getEmojiHistoryList());
 
-        EmojiAdaptor arrayAdapter = new EmojiAdaptor(requireContext(), historyList);
+        EmojiAdaptor arrayAdapter = new EmojiAdaptor(requireContext(), historyList, 1);
         listView.setAdapter(arrayAdapter);
 
         final TextView textView = binding.textDashboard;
